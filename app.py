@@ -69,18 +69,24 @@ summary = (
 )
 
 left, right = st.columns([3, 2])
+
 with left:
-    fig = px.scatter_map(
+    fig = px.scatter_geo(
         summary, lat="lat", lon="lon", size="score", color="score",
         hover_name="place", hover_data=["avg_max_temp", "total_rain"],
-        color_continuous_scale="RdYlGn", zoom=6.3, height=480,
+        color_continuous_scale="RdYlGn", height=480,
     )
-    fig.update_layout(map_style="open-street-map", margin=dict(l=0, r=0, t=0, b=0))
+    fig.update_geos(fitbounds="locations", resolution=50,
+                    showcountries=True, showland=True, landcolor="#eef2e6",
+                    showocean=True, oceancolor="#d6ecf5")
+    fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))
     st.plotly_chart(fig, use_container_width=True)
 with right:
     st.subheader("Best places this week")
-    st.dataframe(summary.sort_values("score", ascending=False)[["place", "score", "avg_max_temp", "total_rain"]],
-                 hide_index=True, use_container_width=True)
+    st.dataframe(
+        summary.sort_values("score", ascending=False)[["place", "score", "avg_max_temp", "total_rain"]],
+        hide_index=True, use_container_width=True,
+    )
 
 st.subheader("Daily comparison")
 metric = st.radio("Metric", ["tmax", "rain_mm", "score"], horizontal=True)
