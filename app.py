@@ -69,16 +69,22 @@ summary = (
 )
 
 left, right = st.columns([3, 2])
-
 with left:
     fig = px.scatter_geo(
         summary, lat="lat", lon="lon", size="score", color="score",
         hover_name="place", hover_data=["avg_max_temp", "total_rain"],
         color_continuous_scale="RdYlGn", height=480,
     )
-    fig.update_geos(fitbounds="locations", resolution=50,
-                    showcountries=True, showland=True, landcolor="#eef2e6",
-                    showocean=True, oceancolor="#d6ecf5")
+    fig.update_geos(
+        lonaxis_range=[79.4, 82.1],
+        lataxis_range=[5.8, 9.95],
+        resolution=50,
+        showcountries=True,
+        showland=True,
+        landcolor="#eef2e6",
+        showocean=True,
+        oceancolor="#d6ecf5",
+    )
     fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))
     st.plotly_chart(fig, use_container_width=True)
 with right:
