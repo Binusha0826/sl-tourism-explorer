@@ -210,7 +210,7 @@ with left:
         countrycolor="#9ad1c5",
     )
     fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), paper_bgcolor="rgba(0,0,0,0)")
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 with right:
     st.subheader("Best places this week")
     table = summary.sort_values("score", ascending=False)[["place", "score", "avg_max_temp", "total_rain"]]
@@ -220,11 +220,11 @@ with right:
         "avg_max_temp": "Avg max temp (°C)",
         "total_rain": "Total rain (7 days, mm)",
     })
-    st.dataframe(table, hide_index=True, use_container_width=True)
+    st.dataframe(table, hide_index=True, width="stretch")
 
 st.subheader("Daily comparison")
 metric = st.radio("Metric", ["tmax", "rain_mm", "score"], horizontal=True)
-st.plotly_chart(px.line(df, x="date", y=metric, color="place", markers=True), use_container_width=True)
+st.plotly_chart(px.line(df, x="date", y=metric, color="place", markers=True), width="stretch")
 
 
 st.subheader("Best month to visit")
@@ -236,7 +236,7 @@ try:
     st.plotly_chart(
         px.bar(hist_df, x="month_name", y="avg_rain_mm",
                labels={"month_name": "Month", "avg_rain_mm": "Avg rain (mm)"}),
-        use_container_width=True,
+        width="stretch",
     )
 except requests.RequestException as e:
     st.error(f"Could not fetch historical data: {e}")
