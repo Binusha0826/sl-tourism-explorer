@@ -2,6 +2,9 @@
 base = "dark"
 primaryColor = "#2dd4bf"
 textColor = "#f8fafc"
- 
+
 [server]
 enableStaticServing = true
+
+[client]
+toolbarMode = "minimal"
