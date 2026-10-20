@@ -1,0 +1,121 @@
+place,month,avg_rain_mm,avg_max_temp
+Sigiriya,1,205.8,27.5
+Sigiriya,2,69.0,29.3
+Sigiriya,3,83.6,31.5
+Sigiriya,4,148.8,33.2
+Sigiriya,5,142.6,32.0
+Sigiriya,6,24.5,32.1
+Sigiriya,7,24.5,32.5
+Sigiriya,8,74.4,33.0
+Sigiriya,9,62.1,32.6
+Sigiriya,10,296.6,31.0
+Sigiriya,11,536.8,28.7
+Sigiriya,12,281.5,28.0
+Ella,1,194.9,23.4
+Ella,2,69.3,24.8
+Ella,3,112.3,25.9
+Ella,4,184.6,26.1
+Ella,5,164.5,26.6
+Ella,6,91.4,27.1
+Ella,7,78.8,27.6
+Ella,8,104.6,27.6
+Ella,9,133.8,27.5
+Ella,10,327.1,25.1
+Ella,11,547.5,24.2
+Ella,12,225.7,24.1
+Galle,1,239.9,28.7
+Galle,2,110.0,30.8
+Galle,3,153.4,30.8
+Galle,4,197.8,30.5
+Galle,5,358.8,29.6
+Galle,6,299.6,29.1
+Galle,7,270.9,29.0
+Galle,8,250.0,28.9
+Galle,9,398.9,28.8
+Galle,10,337.9,28.8
+Galle,11,434.3,29.1
+Galle,12,247.2,29.4
+Mirissa,1,233.9,29.2
+Mirissa,2,89.8,31.5
+Mirissa,3,155.4,31.0
+Mirissa,4,191.5,30.7
+Mirissa,5,281.3,30.0
+Mirissa,6,201.5,29.3
+Mirissa,7,171.8,29.4
+Mirissa,8,157.0,29.5
+Mirissa,9,285.8,29.2
+Mirissa,10,324.2,29.1
+Mirissa,11,412.5,29.2
+Mirissa,12,228.2,29.7
+Nuwara Eliya,1,221.4,18.1
+Nuwara Eliya,2,74.5,19.3
+Nuwara Eliya,3,98.4,20.4
+Nuwara Eliya,4,147.9,21.2
+Nuwara Eliya,5,184.1,20.8
+Nuwara Eliya,6,100.7,20.3
+Nuwara Eliya,7,154.5,19.1
+Nuwara Eliya,8,88.2,20.4
+Nuwara Eliya,9,119.3,19.8
+Nuwara Eliya,10,274.1,19.9
+Nuwara Eliya,11,506.7,19.3
+Nuwara Eliya,12,206.7,19.3
+Kandy,1,140.7,27.0
+Kandy,2,29.4,29.1
+Kandy,3,63.6,31.1
+Kandy,4,118.8,31.4
+Kandy,5,192.9,29.0
+Kandy,6,108.5,28.1
+Kandy,7,149.7,27.6
+Kandy,8,85.8,28.8
+Kandy,9,110.5,28.1
+Kandy,10,281.0,27.9
+Kandy,11,558.7,27.5
+Kandy,12,154.7,27.7
+Arugam Bay,1,271.1,28.0
+Arugam Bay,2,115.8,29.1
+Arugam Bay,3,114.7,30.1
+Arugam Bay,4,139.9,31.3
+Arugam Bay,5,100.1,32.6
+Arugam Bay,6,39.0,34.7
+Arugam Bay,7,65.7,35.1
+Arugam Bay,8,72.8,34.4
+Arugam Bay,9,102.5,34.4
+Arugam Bay,10,268.8,31.5
+Arugam Bay,11,474.1,29.5
+Arugam Bay,12,301.8,28.9
+Jaffna,1,56.9,28.4
+Jaffna,2,55.2,30.3
+Jaffna,3,34.0,32.2
+Jaffna,4,56.9,32.8
+Jaffna,5,147.1,31.4
+Jaffna,6,58.6,31.0
+Jaffna,7,41.4,31.3
+Jaffna,8,70.4,30.9
+Jaffna,9,69.6,30.9
+Jaffna,10,215.1,30.2
+Jaffna,11,544.8,28.9
+Jaffna,12,193.3,28.5
+Yala,1,233.2,28.9
+Yala,2,69.4,30.2
+Yala,3,119.7,30.7
+Yala,4,154.3,31.1
+Yala,5,123.6,32.0
+Yala,6,28.2,33.0
+Yala,7,24.2,34.0
+Yala,8,62.4,33.2
+Yala,9,69.4,32.5
+Yala,10,246.6,30.7
+Yala,11,400.6,29.5
+Yala,12,225.4,29.2
+Trincomalee,1,184.6,27.7
+Trincomalee,2,84.4,28.8
+Trincomalee,3,63.8,30.2
+Trincomalee,4,103.3,32.3
+Trincomalee,5,138.6,33.6
+Trincomalee,6,28.4,35.0
+Trincomalee,7,35.0,35.4
+Trincomalee,8,103.2,34.4
+Trincomalee,9,109.0,34.4
+Trincomalee,10,332.6,31.4
+Trincomalee,11,631.2,28.8
+Trincomalee,12,268.2,28.4
