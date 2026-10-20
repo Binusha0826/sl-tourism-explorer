@@ -1,4 +1,5 @@
 import calendar
+import time
 from pathlib import Path
 
 import pandas as pd
@@ -25,6 +26,11 @@ st.markdown(
     z-index: 0;
 }
 [data-testid="stHeader"] { background: transparent; }
+[data-testid="stToolbar"],
+[data-testid="stAppDeployButton"],
+[data-testid="stMainMenu"],
+[data-testid="stDecoration"],
+#MainMenu { display: none !important; }
 .block-container {
     position: relative;
     z-index: 1;
@@ -82,24 +88,27 @@ if VIDEO_PATH.exists():
         unsafe_allow_html=True,
     )
 
-PLACES = {
-    "Sigiriya": (7.957, 80.760),
-    "Ella": (6.867, 81.046),
-    "Galle": (6.053, 80.221),
-    "Mirissa": (5.948, 80.457),
-    "Nuwara Eliya": (6.949, 80.789),
-    "Kandy": (7.291, 80.636),
-    "Arugam Bay": (6.840, 81.836),
-    "Jaffna": (9.661, 80.026),
-    "Yala": (6.372, 81.516),
-    "Trincomalee": (8.587, 81.215),
-}
+from places import PLACES
+
+
+HISTORY_CSV = Path(__file__).parent / "data" / "monthly_climate.csv"
+
+
+def http_get(url: str, retries: int = 3, **kwargs) -> requests.Response:
+    """GET with simple retry/backoff when the API answers 429 (rate limit)."""
+    for attempt in range(retries):
+        r = requests.get(url, **kwargs)
+        if r.status_code != 429:
+            break
+        time.sleep(2 * (attempt + 1))
+    r.raise_for_status()
+    return r
 
 
 @st.cache_data(ttl=3600)
 def get_forecast(name: str, lat: float, lon: float) -> pd.DataFrame:
     """Fetch 7-day forecast from Open-Meteo (no API key needed)."""
-    r = requests.get(
+    r = http_get(
         "https://api.open-meteo.com/v1/forecast",
         params={
             "latitude": lat,
@@ -121,7 +130,13 @@ def get_forecast(name: str, lat: float, lon: float) -> pd.DataFrame:
 @st.cache_data(ttl=86400)
 def get_history(name: str, lat: float, lon: float) -> pd.DataFrame:
     """Average monthly rain and max temp for 2023-2025 (Open-Meteo archive)."""
-    r = requests.get(
+    if HISTORY_CSV.exists():
+        saved = pd.read_csv(HISTORY_CSV)
+        out = saved[saved["place"] == name].copy()
+        if not out.empty:
+            out["month_name"] = out["month"].apply(lambda m: calendar.month_abbr[m])
+            return out.reset_index(drop=True)
+    r = http_get(
         "https://archive-api.open-meteo.com/v1/archive",
         params={
             "latitude": lat,
